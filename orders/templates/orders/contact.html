@@ -1,0 +1,139 @@
+{% extends 'orders/header.html' %}
+
+{% block content %}
+    <style>
+        .background {
+            background-image: url('https://c0.wallpaperflare.com/preview/560/75/713/board-chalk-feedback-review.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            filter: blur(2px);
+            z-index: -1;
+        }
+
+        .header-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 2.5rem;
+            color: #333;
+            text-shadow: none;
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 20px auto 40px;
+            text-align: center;
+        }
+
+        .card {
+            width: 300px;
+            height: auto;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            overflow: auto;
+            margin: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .review-card {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 400px; /* Set card width */
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #reviewForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #reviewForm select, 
+        #reviewForm textarea {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #reviewForm button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #reviewForm button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+        .social-links {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #eee;
+        }
+
+        .social-links p {
+            transition: all 0.3s ease;
+        }
+
+        .social-links p:hover {
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+
+
+        .container {
+            text-align: center;
+        }
+    </style>
+    
+    <div class="background"></div>
+    <div class="container-fluid" style="padding: 180px;">
+        <div class="row justify-content-center">
+            <!-- Review Card -->
+            <div class="col-md-6 col-sm-12 mb-4">
+                <div class="card review-card" style="max-height: 400px; overflow-y: auto;">
+                    <h4 class="text-center mb-4">Leave a Review</h4>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label for="rating">Rating:</label>
+                            <select id="rating" name="rating" class="form-control">
+                                <option value="5">5 Stars ⭐⭐⭐⭐⭐</option>
+                                <option value="4">4 Stars ⭐⭐⭐⭐</option>
+                                <option value="3">3 Stars ⭐⭐⭐</option>
+                                <option value="2">2 Stars ⭐⭐</option>
+                                <option value="1">1 Star ⭐</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewText">Your Review:</label>
+                            <textarea id="reviewText" name="reviewText" rows="4" class="form-control" placeholder="Share your experience with us..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                    <div id="reviewsList" class="mt-4"></div>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+           
+        </div>
+    </div>
+{% endblock %}

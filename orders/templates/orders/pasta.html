@@ -1,0 +1,31 @@
+{% extends 'orders/header.html' %}
+
+
+
+{% block content %}
+
+
+z
+    <div class="container">
+
+
+      <h4 style="margin:10px; text-align:center;"> Choose one of the Pasta dishes &#x1f35d </h4>
+      <div class="row justify-content-center">
+
+        {% for dish in dishes %}
+            <div class="card" id="regular_pizza_card" style="width: 24rem; margin:10px;">
+              <img src="https://assets.epicurious.com/photos/5988e3458e3ab375fe3c0caf/1:1/w_3607,h_3607,c_limit/How-to-Make-Chicken-Alfredo-Pasta-hero-02082017.jpg" class="card-img-top" alt="{{ dish }}">
+              <div class="card-body">
+                <h5 class="card-title" >{{dish}}</h5>
+              </div>
+              <button class="btn btn-primary" onclick="add_to_cart({'item_description':'{{dish}}', 'price':{{dish.price}} })">₹{{dish.price}}</button>
+            </div>
+        {% endfor %}
+
+
+      </div>
+
+    </div>
+
+
+{% endblock %}

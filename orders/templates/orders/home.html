@@ -1,0 +1,215 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- For the toasts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+
+    
+    <link rel="stylesheet" href="/static/orders/main.js">
+
+
+    <title>Food ordering</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* Prevent scrolling */
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            filter: blur(5px); /* Adjust the blur level as needed */
+            z-index: -1; /* Send the background behind other content */
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="background"></div> <!-- Background Image -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#" style="font-weight: bold; font-size: 2rem; color: white;">
+        <span style="color: #ff5733;">F</span>
+        <span style="color: #8bd751;">O</span>
+        <span style="color: #ffcc00;">O</span>
+        <span style="color: #ff4757;">D</span>
+        <span style="color: #00aaff;">I</span>
+        <span style="color: #ff00ff;">O</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarText">
+        
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/" style="color: #8bd751;"><b>Menu</b></a>
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/directions" style="color: #8bd751; font-weight: bold;">Directions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/hours" style="color: #8bd751; font-weight: bold;">Hours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact" style="color: #8bd751; font-weight: bold;">Review</a>
+          </li>
+         
+        </ul>
+        <span class="navbar-text">
+          <a href="/view-orders" class="btn btn-warning" style="background-color: #ff5733; color: white; font-weight: bold; border-radius: 25px; padding: 10px 20px; transition: background-color 0.3s; margin-right: 10px;" onmouseover="this.style.backgroundColor='#ff8d33'" onmouseout="this.style.backgroundColor='#ff5733'">View Orders</a>
+          <a href="/cart" id="cart_button" class="btn btn-success" style="color:white; font-weight: bold; border-radius: 20px; padding: 10px 20px; font-size: 1rem; margin-right: 10px;">My Cart <i class="fa fa-shopping-cart" style="font-size:24px;"></i></a>
+
+          <a href="/logout" class="btn btn-danger" style="background-color: #ff4757; color: white; font-weight: bold; border-radius: 25px; padding: 10px 20px; transition: background-color 0.3s; font-family: 'Arial', sans-serif;" onmouseover="this.style.backgroundColor='#ff6b81'" onmouseout="this.style.backgroundColor='#ff4757'">
+            <i class="fa fa-sign-out" style="margin-right: 5px;"></i> Logout
+          </a>
+        </span>
+        
+      </div>
+    </nav>
+
+    
+    <div class="container-fluid mt-4">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="card">
+            <div class="card-header text-center">
+              <div style="border: 2px solid #ff5733; padding: 10px; border-radius: 5px; text-align: center;">
+                <h2 style="color: #ff5733; font-family: 'Olivia', cursive;">Our Delicious Categories</h2>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Pizza">
+                    <div class="card-body text-center" style="padding: 20px;">
+                      <h5 class="card-title">Pizza</h5>
+                      <p class="card-text">Come try our <span style="color: #ff0000;"><em><strong>DELICIOUS</strong></em></span> pizza</p>
+                      <a href="Pizza" class="btn btn-dark">Order Pizza</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://images.pexels.com/photos/1487511/pexels-photo-1487511.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Pasta">
+                    <div class="card-body text-center" style="padding: 20px;">
+                      <h5 class="card-title">Pasta</h5>
+                      <p class="card-text">We have some great pasta dishes... <span style="font-family: impact, sans-serif;">come and see!!!</span></p>
+                      <a href="Pasta" class="btn btn-dark">Order Pasta</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://burpy.com/wp-content/uploads/2024/08/punct_79189_wide_shot_from_a_top-down_perspectiveside_picture_o_fca8f79e-65ad-4b2a-84ef-89324dbc4c15-950x500.jpg" class="card-img-top" alt="Subs">
+                    <div class="card-body text-center" style="padding: 20px;">
+                      <h5 class="card-title">Subs</h5>
+                      <p class="card-text"><span style="font-family: 'times new roman', times, serif; font-size: 18pt;">Subway?</span> Come on over for our adorable subs, made with love and a sprinkle of magic! ✨</p>
+                      <a href="Subs" class="btn btn-dark">Order Subs</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://images.pexels.com/photos/2116090/pexels-photo-2116090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Salad">
+                    <div class="card-body text-center" style="padding: 20px;">
+                      <h5 class="card-title">Salad</h5>
+                      <p class="card-text">For you healthy folk, come and try our <span style="font-size: 12pt;"><em>salads</em></span>!</p>
+                      <a href="Salad" class="btn btn-dark">Order Salad</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://cdn.loveandlemons.com/wp-content/uploads/2022/08/mezze-platter.jpg" class="card-img-top" alt="Platters">
+                    <div class="card-body text-center" style="padding: 20px;">
+                      <h5 class="card-title">Platters</h5>
+                      <p class="card-text">Fancy something special? We offer some <span style="font-family: 'arial black', sans-serif; color: #ff00ff;">fantastic</span> dinner platters!</p>
+                      <a href="Platters" class="btn btn-dark">Order Platters</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Desserts">
+                    <div class="card-body text-center" style="padding: 20px;">
+                      <h5 class="card-title">Desserts</h5>
+                      <p class="card-text">Indulge in our sweet treats!</p>
+                      <a href="Desserts" class="btn btn-dark">Order Desserts</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://images.pexels.com/photos/1028637/pexels-photo-1028637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Beverages">
+                    <div class="card-body text-center" style="padding: 20px;">
+                      <h5 class="card-title">Beverages</h5>
+                      <p class="card-text">Refresh yourself with our drinks!</p>
+                      <a href="Beverages" class="btn btn-dark">Order Beverages</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://images.pexels.com/photos/29608916/pexels-photo-29608916/free-photo-of-colourful-flat-lay-of-appetizers-and-cocktails.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Appetizers">
+                    <div class="card-body text-center" style="padding: 20px;">
+                      <h5 class="card-title">Appetizers</h5>
+                      <p class="card-text">Start your meal with our delicious appetizers!</p>
+                      <a href="Appetizers" class="btn btn-dark">Order Appetizers</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://images.pexels.com/photos/28674660/pexels-photo-28674660/free-photo-of-delicious-indian-chicken-biryani-with-spicy-curry.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Specials">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Specials</h5>
+                      <p class="card-text">Check out our daily specials!</p>
+                      <a href="Specials" class="btn btn-dark">Order Specials</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
+                  <div class="card flex-fill">
+                    <img src="https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F3462%2Ftrend20220321090619.jpg" class="card-img-top" alt="Family Meals">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Family Meals</h5>
+                      <p class="card-text">Perfect for sharing with loved ones!</p>
+                      <a href="FamilyMeals" class="btn btn-dark">Order Family Meals</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src = "/static/orders/main.js"></script>
+  </body>
+</html>
