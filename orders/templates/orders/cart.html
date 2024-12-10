@@ -1,30 +1,43 @@
 {% extends 'orders/header.html' %}
 
 {% block content %}
-
-<div class="container-fluid">
-  <div class="row justify-content-center">
-    <h2 id="cart_heading"></h2>
-    <table class="table">
-        <thead class="thead-light">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Item Description</th>
-          <th scope="col">Price</th>
-        </tr>
-        </thead>
-        <tbody id="cart_body">
-        </tbody>
-    </table>
-
-
-    <h3>Total: <span class="badge badge-primary" id="total"></span></h3>
+<div class="container-fluid py-4">
+  <div class="row justify-content-center mb-4">
+    <h2 id="cart_heading" class="text-center display-4 text-primary">Your Shopping Cart</h2>
   </div>
 
   <div class="row justify-content-center">
-    <button id="checkout_button" type="button" class="btn btn-success" onclick="checkout()">Checkout</button>
+    <div class="col-lg-8">
+      <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover align-middle">
+          <thead class="thead-light bg-primary text-white">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item Description</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody id="cart_body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-lg-6 text-center">
+      <h3 class="fw-bold">Total: <span class="badge badge-primary bg-success text-white fs-4" id="total"></span></h3>
+    </div>
+  </div>
+  
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-lg-4 text-center">
+      <button id="checkout_button" type="button" class="btn btn-success btn-lg shadow" onclick="checkout()">
+        <i class="fas fa-shopping-cart"></i> Checkout
+      </button>
+    </div>
   </div>
 </div>
-
 
 {% endblock %}
